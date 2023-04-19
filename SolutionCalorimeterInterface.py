@@ -84,6 +84,7 @@ class calorimeter():
 
 
 class Window(Frame):
+    """Class to create and host window for calorimeter script."""
 
     def __init__(self, master=None):
         Frame.__init__(self, master)
@@ -199,11 +200,12 @@ class Window(Frame):
         self.ax.xaxis.set_major_formatter(date_form)
         self.ax.set_xlim([min(self.timeData), max(self.timeData)])
         self.ax.set_ylim([min(self.bucketData), max(self.bucketData)])
-        self.ax.set_xlabel('Time', fontsize=20)
-        self.ax.set_ylabel('Bucket Temperature', fontsize=20)
+        self.ax.set_xlabel('Time [hh:mm:ss]', fontsize=20)
+        self.ax.set_ylabel('Bucket Temperature [°C]', fontsize=20)
 
         self.canvas = FigureCanvasTkAgg(self.fig, master=self)
         self.canvas.get_tk_widget().grid(column=0, row=3, columnspan=4)
+
 
 if __name__ == '__main__':
     # Define IP address of calorimeter
@@ -219,5 +221,6 @@ if __name__ == '__main__':
     # Creat window for application
     root = tk.Tk()
     root.geometry("860x610")
+    root.resizable(False, False)
     app = Window(master=root)
     tk.mainloop()
