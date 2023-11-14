@@ -169,10 +169,10 @@ class Window(Frame):
         self.textExport.grid(row=1, column=2, columnspan=2)
 
         # Set default values for entry fields
-        self.textExport.insert(0, "T:/Student data 2022-2023/2nd Year")
+        self.textExport.insert(0, "T:/Student Data 2023-2024/2nd Year")
         self.textMonitorTime.insert(0, "20")
         self.mt = 20
-        self.expPath = "T:/Student data 2022-2023/2nd Year"
+        self.expPath = "T:/Student data 2023-2024/2nd Year"
 
         # Create buttons
         self.buttonUpdateData = Button(self, text="Refresh Data",
@@ -193,7 +193,7 @@ class Window(Frame):
         self.trimData()
 
         # Create Figure in window
-        self.fig = plt.Figure(figsize=(12, 7))
+        self.fig = plt.Figure(figsize=(8, 5))
         self.ax = self.fig.add_subplot(111)
         self.line, = self.ax.plot(self.timeData, self.bucketData)
         date_form = matplotlib.dates.DateFormatter("%H:%M:%S")
@@ -209,7 +209,7 @@ class Window(Frame):
 
 if __name__ == '__main__':
     # Define IP address of calorimeter
-    ipaddr = input('Enter ip address of calorimeter: ')
+    ipaddr = input('Enter IP address of calorimeter: ')
 
     # Set up calorimeter class with ip address
     cal = calorimeter(ipaddr)
